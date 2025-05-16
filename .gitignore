@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables file
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/

@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+openai
+pytesseract
+pillow
+python-multipart
+requests
+tqdm
+faiss-cpu
+python-dotenv
