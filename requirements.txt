@@ -8,3 +8,4 @@ requests
 tqdm
 faiss-cpu
 python-dotenv
+numpy
