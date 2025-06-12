@@ -12,8 +12,18 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from PIL import Image
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = FastAPI()  # <-- Initialize first
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or restrict to your domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 load_dotenv()
 
 # Load FAISS index and metadata at startup
@@ -153,3 +163,7 @@ async def answer_query(query: Query):
             source_links.append({"url": url, "text": md.get("title", "") or "Source"})
 
     return {"answer": answer, "links": source_links}
+
+@app.get("/")
+def read_root():
+    return {"message": "TDS Virtual TA is running. Use POST /api/ to ask questions."}
